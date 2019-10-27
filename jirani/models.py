@@ -32,3 +32,11 @@ class Profile(models.Model):
             output_size = (152,152)
             img.thumbnail(output_size)
             img.save(self.pic.path)
+
+
+class Business(models.Model):
+    name = models.CharField(max_length = 30)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    location = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+    email = models.EmailField()
+    
