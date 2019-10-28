@@ -14,12 +14,16 @@ class Neighbourhood(models.Model):
     def __str__(self):
         return self.name
 
+    def save_hood(self):
+        self.save()
+    
+    def delete_hood(self):
+        self.delete()
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     pic = models.ImageField(default = 'default.jpg', upload_to ='profile_pics')
-    hood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
-    
 
     def __str__(self):
         return f'{self.user.username}\'s Profile'
@@ -39,4 +43,3 @@ class Business(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     location = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
     email = models.EmailField()
-    
