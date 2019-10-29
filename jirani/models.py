@@ -44,6 +44,11 @@ class Business(models.Model):
     location = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
     email = models.EmailField()
 
+    @classmethod
+    def search_by_hood(cls, search_term):
+        biznas = cls.objects.filter(name__icontains=search_term)
+        return biznas
+
 
 class Updates(models.Model):
     tiltle = models.CharField(max_length= 50)
