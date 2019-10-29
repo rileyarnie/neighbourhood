@@ -1,0 +1,30 @@
+{% extends 'jirani/base.html' %}
+{{block.super}}
+{%block content%}
+<div class="container mt-2">
+  <div class="row">
+    {%if searched_biznas %}
+    <h2>Found {{ searched_biznas|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 business for the {{message}} here</h2>
+    {% endif %}
+  </div>
+
+  <div class="row">
+        {% if searched_biznas %}
+        {% for bizna in searched_biznas %}
+        <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ bizna.name }}</a>
+                <small class="text-muted">{{ bizna.email}}</small>
+              </div>
+              <p class="article-content">{{ bizna.owner }}</p>
+            </div>
+          </article>
+    {%endfor%}
+    {%endif%}
+  </div>
+</div>
+{%endblock%}
+
