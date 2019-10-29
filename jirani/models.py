@@ -43,3 +43,9 @@ class Business(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     location = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
     email = models.EmailField()
+
+
+class Updates(models.Model):
+    tiltle = models.CharField(max_length= 50)
+    content = models.TextField()
+    estate = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
