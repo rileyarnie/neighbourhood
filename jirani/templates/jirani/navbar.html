@@ -29,10 +29,12 @@
       </ul>
       <!-- Links -->
   
-      <form class="form-inline">
-        <div class="md-form my-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <form class="form-inline my-1" role="search" action="{% url 'search_results' %}" >
+        <div class="md-form form-sm my-0">
+          <input class="form-control form-control-sm mr-sm-2 mb-0" type="text" name="biz" placeholder="Search"
+            aria-label="Search">
         </div>
+        <button class="btn btn-outline-white btn-sm my-0" type="submit">Search</button>
       </form>
     </div>
     <!-- Collapsible content -->
