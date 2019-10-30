@@ -54,3 +54,8 @@ class Updates(models.Model):
     tiltle = models.CharField(max_length= 50)
     content = models.TextField()
     estate = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+
+    @classmethod
+    def filterby_id(cls, estate):
+        updates = cls.Objects.all()
+        return updates
