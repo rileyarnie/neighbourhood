@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import Neighbourhood, Business
 from django.views.generic import *
 from .models import Updates, Business
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
 
 
 # Create your views here.
@@ -61,3 +63,11 @@ def estate(request):
 
     return render(request,'jirani/estate.html', context)
 
+class UpdateCreateView(LoginRequiredMixin, CreateView):
+    model = Updates
+    fields = ['title','estate', 'content']
+    success_url='/estate'
+
+    def form_valid(self,form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
