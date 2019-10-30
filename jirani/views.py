@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import UserRegisterForm
 from django.contrib import messages
 from .models import Neighbourhood, Business
+from django.views.generic import ListView
+from .models import Updates
+
 
 # Create your views here.
 
@@ -38,3 +41,10 @@ def search_results(request):
     else:
         message = "You haven't searched for any Businesses"
         return render(request, 'jirani/search.html',{"message":message})
+
+
+class UpdateListView(ListView):
+    model = Updates
+    template_name = 'jirani/news.html'
+    context_object_name = 'updates'
+
