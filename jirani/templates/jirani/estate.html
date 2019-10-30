@@ -23,11 +23,11 @@
                 <article class="media content-section">
                     <div class="media-body">
                         <div class="article-metadata">
-                                <a class="mr-2" href="#"></a>
-                                <small class="text-muted"></small>
+                                <a class="mr-2" href="#">{{ bizna.owner }}'s Business in {{ bizna.location }} </a>
+                                <small class="text-muted">{{ binza.email}}</small>
                         </div>
-                        <h2><a class="article-title" href="   "></a></h2>
-                        <p class="article-content"></p>
+                        <h2><a class="article-title" href="   ">{{ bizna.name }}</a></h2>
+                        <p class="article-content">{{ bizna.location }}</p>
                     </div>
                 </article>
             {% endfor %}

@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserRegisterForm
 from django.contrib import messages
 from .models import Neighbourhood, Business
-from django.views.generic import ListView
-from .models import Updates
+from django.views.generic import *
+from .models import Updates, Business
 
 
 # Create your views here.
@@ -12,7 +12,7 @@ def index(request):
     return render(request, 'index.html')
 
 def home(request):
-    return render(request, 'jirani/home.html')
+    return render(request, 'jirani/home.html',)
 
 def register(request):
     if request.method == 'POST':
@@ -47,4 +47,17 @@ class UpdateListView(ListView):
     model = Updates
     template_name = 'jirani/news.html'
     context_object_name = 'updates'
+
+class BizansListView(ListView):
+    model = Business
+    template_name = 'jirani/news.html'
+    context_object_name = 'biznas'
+
+def estate(request):
+    updates = Updates.objects.all()
+    biznas = Business.get_business()
+
+    context = {"updates": updates, "biznas":biznas}
+
+    return render(request,'jirani/estate.html', context)
 

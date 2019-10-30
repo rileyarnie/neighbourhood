@@ -1,1 +1,22 @@
-<h1>BATMAN FOREVER</h1>
+{% extends 'jirani/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="row mt-4">
+        <div class="col-md-3"></div>
+        <div class="col-md-5 loginform">
+                <form action="" method="POST">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Choose Neighbourhood</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-info" type="submit"> search</button>
+                        </div>
+                        
+                    </form>
+        </div>
+        <div class="col-md-3"></div>
+        
+    </div>
+{% endblock %}

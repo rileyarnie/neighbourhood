@@ -20,6 +20,11 @@ class Neighbourhood(models.Model):
     def delete_hood(self):
         self.delete()
 
+    @classmethod
+    def get_neighbourhood(cls):
+        estates = cls.objects.all()
+        return estates
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -49,6 +54,11 @@ class Business(models.Model):
         biznas = cls.objects.filter(name__icontains=search_term)
         return biznas
 
+    @classmethod
+    def get_business(cls):
+        biznas = cls.objects.all()
+        return biznas
+
 
 class Updates(models.Model):
     tiltle = models.CharField(max_length= 50)
@@ -56,6 +66,8 @@ class Updates(models.Model):
     estate = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
 
     @classmethod
-    def filterby_id(cls, estate):
+    def filter(cls, estate):
         updates = cls.Objects.all()
         return updates
+
+
