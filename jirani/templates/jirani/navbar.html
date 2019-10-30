@@ -26,9 +26,23 @@
         <li class="nav-item">
           <a class="nav-link" href=" {% url 'news' %} ">News</a>
         </li>  
-      </ul>
+ 
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">More</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href=" {% url 'profile' %} ">View Profile</a>
+                      <a class="dropdown-item" href=" {% url 'create-post' %} ">New Post</a>
+                      <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                  </li>
+            
+        </ul>
+                <!-- Links -->
       <!-- Links -->
   
+      
       <form class="form-inline my-1" role="search" action="{% url 'search_results' %}" >
         <div class="md-form form-sm my-0">
           <input class="form-control form-control-sm mr-sm-2 mb-0" type="text" name="biz" placeholder="Search"

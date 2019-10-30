@@ -17,3 +17,19 @@ class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email']
+
+
+class HoodUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Neighbourhood
+        fields = ['name']
+
+        
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['pic']
+
+    
