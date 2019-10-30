@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import UpdateListView
+from .views import *
 
 urlpatterns = [
     path('', views.index, name='index' ),
@@ -9,6 +9,8 @@ urlpatterns = [
     path('search/', views.search_results, name='search_results'),
     path('news/', UpdateListView.as_view(), name='news'),
     path('estate/', views.estate , name='estate'),
- 
-   
+    path('post/new', UpdateCreateView.as_view(), name='create-post'),
+
+
+
 ]
